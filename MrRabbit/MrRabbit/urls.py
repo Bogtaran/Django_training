@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dolls.views import page_not_found
 
 from dolls import views
 
@@ -23,3 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dolls.urls')),
 ]
+
+handler404 = page_not_found
