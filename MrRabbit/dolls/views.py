@@ -4,6 +4,12 @@ from django.template.loader import render_to_string
 
 menu = ['Одежда для кукол', 'Обувь для кукол', 'Хвастики', 'Войти']
 
+typ_clothing = [
+    {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'content': 'Характеристики и описание', 'Наличие': True},
+    {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'content': 'Характеристики и описание', 'Наличие': True},
+    {'id': 3, 'title': 'Наушники для кукол', 'content': 'Характеристики и описание', 'Наличие': True}
+]
+
 
 def index(request):
     # t = render_to_string('dolls/index.html')
