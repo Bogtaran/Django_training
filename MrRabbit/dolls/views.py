@@ -6,7 +6,8 @@ from django.template.loader import render_to_string
 def index(request):
     # t = render_to_string('dolls/index.html')
     # return HttpResponse(t)
-    return render(request, 'dolls/index.html')
+    data = {'title': 'Главная страница'}
+    return render(request, 'dolls/index.html', data)
 
 
 def categories(request, cat_id):
@@ -22,4 +23,4 @@ def page_not_found(request, exception):
 
 
 def clothes(request):
-    return render(request, 'dolls/clothes.html')
+    return render(request, 'dolls/clothes.html', {'title': 'Одежда для кукол'})
