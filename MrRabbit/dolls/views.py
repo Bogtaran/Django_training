@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template.loader import render_to_string
 
-menu = ['Одежда для кукол', 'Обувь для кукол', 'Хвастики', 'Войти']
+menu = ['О сайте', 'Одежда для кукол', 'Обувь для кукол', 'Хвастики', 'Войти']
 
 typ_clothing = [
     {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'content': 'Характеристики и описание', 'Наличие': True},
@@ -12,8 +12,6 @@ typ_clothing = [
 
 
 def index(request):
-    # t = render_to_string('dolls/index.html')
-    # return HttpResponse(t)
     data = {
         'title': 'Главная страница',
         'menu': menu,
@@ -34,4 +32,8 @@ def page_not_found(request, exception):
 
 
 def clothes(request):
-    return render(request, 'dolls/clothes.html', {'title': 'Одежда для кукол'})
+    data = {
+        'title': 'Одежда для кукол',
+        'typ_clothing': typ_clothing,
+    }
+    return render(request, 'dolls/clothes.html', data)
