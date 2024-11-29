@@ -2,11 +2,16 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template.loader import render_to_string
 
+menu = ['Одежда для кукол', 'Обувь для кукол', 'Хвастики', 'Войти']
+
 
 def index(request):
     # t = render_to_string('dolls/index.html')
     # return HttpResponse(t)
-    data = {'title': 'Главная страница'}
+    data = {
+        'title': 'Главная страница',
+        'menu': menu,
+    }
     return render(request, 'dolls/index.html', data)
 
 
