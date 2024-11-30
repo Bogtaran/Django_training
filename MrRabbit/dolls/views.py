@@ -8,6 +8,7 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Хвастики", 'url_name': 'photo'},
         {'title': "Войти", 'url_name': 'login'}
         ]
+
 typ_clothing = [
     {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
     {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
@@ -23,7 +24,7 @@ typ_footwear = [
 def index(request):
     data = {
         'title': 'Главная страница',
-        'menu': menu,
+        'menu': menu
     }
     return render(request, 'dolls/index.html', data)
 
@@ -31,15 +32,16 @@ def index(request):
 def about(request):
     data = {
         'title': 'О сайте',
-        'menu': menu,
+        'menu': menu
     }
-    return render(request, 'dolls/index.html', data)
+    return render(request, 'dolls/about.html', data)
 
 
 def clothes(request):
     data = {
         'title': 'Одежда для кукол',
-        'typ_clothing': typ_clothing,
+        'menu': menu,
+        'typ_clothing': typ_clothing
     }
     return render(request, 'dolls/clothes.html', data)
 
@@ -47,7 +49,8 @@ def clothes(request):
 def footwear(request):
     data = {
         'title': 'Обувь для кукол',
-        'typ_footwear': typ_footwear,
+        'menu': menu,
+        'typ_footwear': typ_footwear
     }
     return render(request, 'dolls/footwear.html', data)
 
