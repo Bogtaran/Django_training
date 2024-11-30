@@ -56,7 +56,11 @@ def footwear(request):
 
 
 def photo(request):
-    return HttpResponse(f"Хвастики")
+    data = {
+        'title': 'Хвастики',
+        'menu': menu,
+    }
+    return render(request, 'dolls/photo.html', data)
 
 
 def login(request):
@@ -65,12 +69,12 @@ def login(request):
 
 def show_post_clothes(request, post_id):
     return render(request, f'dolls/characteristics_description/clothes/{post_id}.html',
-                  {'title': 'Характеристики и описание'})
+                  {'title': 'Характеристики и описание', 'menu': menu})
 
 
 def show_post_footwear(request, post_id):
     return render(request, f'dolls/characteristics_description/footwear/{post_id}.html',
-                  {'title': 'Характеристики и описание'})
+                  {'title': 'Характеристики и описание', 'menu': menu})
 
 
 def page_not_found(request, exception):
