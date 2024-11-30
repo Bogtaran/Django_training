@@ -14,6 +14,11 @@ typ_clothing = [
     {'id': 3, 'title': 'Наушники для кукол', 'content': 'Характеристики и описание', 'аvailability': True}
 ]
 
+typ_footwear = [
+    {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
+    {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'content': 'Характеристики и описание', 'аvailability': True},
+]
+
 
 def index(request):
     data = {
@@ -36,7 +41,11 @@ def clothes(request):
 
 
 def footwear(request):
-    return HttpResponse(f"Обувь для кукол")
+    data = {
+        'title': 'Обувь для кукол',
+        'typ_footwear': typ_footwear,
+    }
+    return render(request, 'dolls/footwear.html', data)
 
 
 def photo(request):

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for i in typ_footwear %}
+    {% if i.аvailability %}
+
+    <li>
+        <h2>{{ i.title }}</h2>
+        <p><a href = "{% url 'post' i.id %}">{{ i.content }}</a></p>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
+
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+</body>
+</html>
