@@ -29,7 +29,11 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse(f"О сайте")
+    data = {
+        'title': 'О сайте',
+        'menu': menu,
+    }
+    return render(request, 'dolls/index.html', data)
 
 
 def clothes(request):
