@@ -9,7 +9,7 @@
 
     <li>
         <h2>{{ i.title }}</h2>
-        <p><a href = "{% url 'post' i.id %}">{{ i.content }}</a></p>
+        <p><a href = "{% url 'post_footwear' i.id %}">{{ i.content }}</a></p>
         {% if not forloop.last %}
         <hr>
         {% endif %}

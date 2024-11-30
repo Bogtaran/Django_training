@@ -8,6 +8,7 @@ urlpatterns = [
     path('footwear/', views.footwear, name='footwear'),
     path('photo/', views.photo, name='photo'),
     path('login/', views.login, name='login'),
-    path('post/<int:post_id>/', views.show_post, name='post'),
+    path('post_clothes/<int:post_id>/', views.show_post_clothes, name='post_clothes'),
+    path('post_footwear/<int:post_id>/', views.show_post_footwear, name='post_footwear'),
     ]
 

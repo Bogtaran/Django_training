@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
 from django.template.loader import render_to_string
 
@@ -63,9 +63,19 @@ def login(request):
     return HttpResponse(f"Войти")
 
 
-def show_post(request, post_id):
-    return HttpResponse(f"Отображение статьи с id = {post_id}")
+def show_post_clothes(request, post_id):
+    return render(request, f'dolls/characteristics_description/clothes/{post_id}.html',
+                  {'title': 'Характеристики и описание'})
+
+
+def show_post_footwear(request, post_id):
+    return render(request, f'dolls/characteristics_description/footwear/{post_id}.html',
+                  {'title': 'Характеристики и описание'})
 
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("<h1>Страница не найдена</h1>")
+
+
+def server_error(request):
+    return HttpResponseServerError("<h1>На сервере произошла неожиданная ошибка. Невозможно выполнить запрос. </h1>")
