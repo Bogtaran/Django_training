@@ -3,6 +3,9 @@
 {% block content %}
 <h1>{{ title }}</h1>
 
+{% include 'dolls/includes/nav_for_clothes.html' %}
+
+
 <ul>
     {% for i in typ_clothing %}
     {% if i.аvailability %}
@@ -18,4 +21,7 @@
     {% endif %}
     {% endfor %}
 </ul>
+
+{% include 'dolls/includes/nav_for_clothes.html' %}
+
 {% endblock %}
