@@ -3,26 +3,27 @@
 {% block content %}
 <h1>{{ title }}</h1>
 
-
 {% include 'dolls/includes/nav_for_clothes.html' %}
 
 
 <ul>
     {% for i in typ_clothing %}
-    {% if i.аvailability %}
+
 
     <li>
         <h2>{{ i.title }}</h2>
-        <p><a href="{% url 'post_clothes' i.id %}">{{ i.content }}</a></p>
+        <p><a href = "{% url 'post_clothes' i.id %}">{{ i.content }}</a></p>
         {% if not forloop.last %}
         <hr>
         {% endif %}
 
     </li>
-    {% endif %}
+
     {% endfor %}
 </ul>
 
 {% include 'dolls/includes/nav_for_clothes.html' %}
 
 {% endblock %}
+
+

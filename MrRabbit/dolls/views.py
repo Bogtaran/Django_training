@@ -10,14 +10,26 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
         ]
 
 typ_clothing = [
-    {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
-    {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
-    {'id': 3, 'title': 'Наушники для кукол', 'content': 'Характеристики и описание', 'аvailability': True}
+    {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'typ': 'Свитшоты', 'content': 'Характеристики и описание',
+     'аvailability': True},
+    {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'typ': 'Блузки', 'content': 'Характеристики и описание',
+     'аvailability': True},
+    {'id': 3, 'title': 'Наушники для кукол', 'typ': 'Наушники', 'content': 'Характеристики и описание',
+     'аvailability': True}
 ]
 
 typ_footwear = [
     {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
     {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'content': 'Характеристики и описание', 'аvailability': True},
+]
+
+menu_selection_clothes = [
+    {'title': "Верхняя одежда", 'typ': "Верхняя одежда"},
+    {'title': "Свитшоты", 'typ': "Свитшоты"},
+    {'title': "Блузки", 'typ': "Блузки"},
+    {'title': "Юбки", 'typ': "Юбки"},
+    {'title': "Джинсы", 'typ': "Джинсы"},
+    {'title': "Наушники", 'typ': "Наушники"}
 ]
 
 
@@ -39,6 +51,7 @@ def about(request):
 
 def clothes(request):
     data = {
+        'menu_selection_clothes': menu_selection_clothes,
         'title': 'Одежда для кукол',
         'menu': menu,
         'typ_clothing': typ_clothing
@@ -75,6 +88,15 @@ def show_post_clothes(request, post_id):
 def show_post_footwear(request, post_id):
     return render(request, f'dolls/characteristics_description/footwear/{post_id}.html',
                   {'title': 'Характеристики и описание', 'menu': menu})
+
+
+def show_selection_clothes(request):
+    data = {
+        'menu_selection_clothes': menu_selection_clothes,
+        'menu': menu,
+        'typ_clothing': typ_clothing
+    }
+    return render(request, f'dolls/selection_clothes.html', data)
 
 
 def page_not_found(request, exception):

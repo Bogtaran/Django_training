@@ -1,8 +1,9 @@
 <nav>
-    <a href = "#">Верхняя одежда</a> |
-    <a href = "#">Свитшоты</a> |
-    <a href = "#">Блузки</a> |
-    <a href = "#">Юбки</a> |
-    <a href = "#">Джинсы</a> |
-    <a href = "#">Наушники</a>
+    {% for s in menu_selection_clothes %}
+        <a href="{% url 'selection_clothes' %}">{{ s.typ }}</a> |
+    {% endfor %}
 </nav>
+
+
+
+
