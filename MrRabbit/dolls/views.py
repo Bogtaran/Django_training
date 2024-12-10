@@ -90,11 +90,13 @@ def show_post_footwear(request, post_id):
                   {'title': 'Характеристики и описание', 'menu': menu})
 
 
-def show_selection_clothes(request):
+def show_selection_clothes(request, cloth_type):
     data = {
         'menu_selection_clothes': menu_selection_clothes,
         'menu': menu,
-        'typ_clothing': typ_clothing
+        'typ_clothing': typ_clothing,
+        'title': cloth_type,
+        'cloth_type': cloth_type
     }
     return render(request, f'dolls/selection_clothes.html', data)
 

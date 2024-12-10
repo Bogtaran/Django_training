@@ -1,6 +1,6 @@
 <nav>
     {% for s in menu_selection_clothes %}
-        <a href="{% url 'selection_clothes' %}">{{ s.typ }}</a> |
+        <a href="{% url 'selection_clothes' s.typ %}">{{ s.typ }}</a> |
     {% endfor %}
 </nav>
 

@@ -5,10 +5,9 @@
 
 {% include 'dolls/includes/nav_for_clothes.html' %}
 
-
 <ul>
     {% for i in typ_clothing %}
-
+    {% if i.typ == cloth_type %}
 
     <li>
         <h2>{{ i.title }}</h2>
@@ -18,7 +17,7 @@
         {% endif %}
 
     </li>
-
+    {% endif %}
     {% endfor %}
 </ul>
 
