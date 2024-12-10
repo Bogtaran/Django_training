@@ -19,17 +19,22 @@ typ_clothing = [
 ]
 
 typ_footwear = [
-    {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'content': 'Характеристики и описание', 'аvailability': True},
-    {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'content': 'Характеристики и описание', 'аvailability': True},
+    {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'typ': 'Ботинки', 'content': 'Характеристики и описание', 'аvailability': True},
+    {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'typ': 'Мокасины', 'content': 'Характеристики и описание', 'аvailability': True},
 ]
 
 menu_selection_clothes = [
-    {'title': "Верхняя одежда", 'typ': "Верхняя одежда"},
-    {'title': "Свитшоты", 'typ': "Свитшоты"},
-    {'title': "Блузки", 'typ': "Блузки"},
-    {'title': "Юбки", 'typ': "Юбки"},
-    {'title': "Джинсы", 'typ': "Джинсы"},
-    {'title': "Наушники", 'typ': "Наушники"}
+    {'typ': "Верхняя одежда"},
+    {'typ': "Свитшоты"},
+    {'typ': "Блузки"},
+    {'typ': "Юбки"},
+    {'typ': "Джинсы"},
+    {'typ': "Наушники"}
+]
+
+menu_selection_footwear = [
+    {'typ': "Ботинки"},
+    {'typ': "Мокасины"},
 ]
 
 
@@ -63,7 +68,8 @@ def footwear(request):
     data = {
         'title': 'Обувь для кукол',
         'menu': menu,
-        'typ_footwear': typ_footwear
+        'typ_footwear': typ_footwear,
+        'menu_selection_footwear': menu_selection_footwear
     }
     return render(request, 'dolls/footwear.html', data)
 
@@ -99,6 +105,16 @@ def show_selection_clothes(request, cloth_type):
         'cloth_type': cloth_type
     }
     return render(request, f'dolls/selection_clothes.html', data)
+
+def show_selection_footwear(request,foot_type):
+    data = {
+        'menu_selection_footwear': menu_selection_footwear,
+        'menu': menu,
+        'typ_footwear': typ_footwear,
+        'title': foot_type,
+        'foot_type': foot_type
+    }
+    return render(request, f'dolls/selection_footwear.html', data)
 
 
 def page_not_found(request, exception):

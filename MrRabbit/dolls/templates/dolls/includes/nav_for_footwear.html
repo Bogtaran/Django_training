@@ -1,4 +1,9 @@
 <nav>
-    <a href = "#">Ботинки</a> |
-    <a href = "#">Мокасины</a>
+    {% for s in menu_selection_footwear %}
+        <a href="{% url 'selection_footwear' s.typ %}">{{ s.typ }}</a> |
+    {% endfor %}
 </nav>
+
+
+
+
