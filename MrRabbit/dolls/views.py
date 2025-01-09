@@ -11,16 +11,18 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
 
 typ_clothing = [
     {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'typ': 'Свитшоты', 'content': 'Характеристики и описание',
-     'аvailability': True},
+     'availability': True},
     {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'typ': 'Блузки', 'content': 'Характеристики и описание',
-     'аvailability': True},
+     'availability': True},
     {'id': 3, 'title': 'Наушники для кукол', 'typ': 'Наушники', 'content': 'Характеристики и описание',
-     'аvailability': True}
+     'availability': True}
 ]
 
 typ_footwear = [
-    {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'typ': 'Ботинки', 'content': 'Характеристики и описание', 'аvailability': True},
-    {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'typ': 'Мокасины', 'content': 'Характеристики и описание', 'аvailability': True},
+    {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'typ': 'Ботинки', 'content': 'Характеристики и описание',
+     'availability': True},
+    {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'typ': 'Мокасины', 'content': 'Характеристики и описание',
+     'availability': True},
 ]
 
 menu_selection_clothes = [
@@ -106,7 +108,8 @@ def show_selection_clothes(request, cloth_type):
     }
     return render(request, f'dolls/selection_clothes.html', data)
 
-def show_selection_footwear(request,foot_type):
+
+def show_selection_footwear(request, foot_type):
     data = {
         'menu_selection_footwear': menu_selection_footwear,
         'menu': menu,
