@@ -83,8 +83,8 @@ def login(request):
     return HttpResponse(f"Войти")
 
 
-def show_post_clothes(request, post_id):
-    post = get_object_or_404(Typ_clothing, pk=post_id)
+def show_post_clothes(request, post_slug):
+    post = get_object_or_404(Typ_clothing, slug=post_slug)
 
     data = {
         'title': post.title,
