@@ -88,9 +88,10 @@ def show_post_clothes(request, post_id):
 
     data = {
         'title': post.title,
-        'menu': menu
+        'menu': menu,
+        'post': post
     }
-    return render(request, f'dolls/characteristics_description/clothes/{post_id}.html', data)
+    return render(request, f'dolls/characteristics_description/clothes/clothes.html', data)
 
 
 def show_post_footwear(request, post_id):

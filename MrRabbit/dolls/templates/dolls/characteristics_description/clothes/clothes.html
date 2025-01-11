@@ -1,0 +1,15 @@
+{% extends 'base_characteristics_description.html' %}
+
+{% block characteristics_description %}
+<h1>{{ title }}</h1>
+
+{% if post.photo %}
+<p><img class="img-article-left" src="{{post.photo.url}}"></p>
+{% endif %}
+
+<ul>
+
+    <li> {{ post.content|linebreaks }} </li>
+
+</ul>
+{% endblock %}
