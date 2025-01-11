@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseServerError
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
+
+from dolls.models import Typ_clothing
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Одежда для кукол", 'url_name': 'clothes'},
@@ -8,15 +10,6 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Хвастики", 'url_name': 'photo'},
         {'title': "Войти", 'url_name': 'login'}
         ]
-
-typ_clothing = [
-    {'id': 1, 'title': 'Свитшот для куклы Paola Reina', 'typ': 'Свитшоты', 'content': 'Характеристики и описание',
-     'availability': True},
-    {'id': 2, 'title': 'Блузка для куклы Paola Reina', 'typ': 'Блузки', 'content': 'Характеристики и описание',
-     'availability': True},
-    {'id': 3, 'title': 'Наушники для кукол', 'typ': 'Наушники', 'content': 'Характеристики и описание',
-     'availability': True}
-]
 
 typ_footwear = [
     {'id': 1, 'title': 'Ботинки для куклы Paola Reina', 'typ': 'Ботинки', 'content': 'Характеристики и описание',
@@ -57,11 +50,13 @@ def about(request):
 
 
 def clothes(request):
+    Typ_clot = Typ_clothing.objects.all()
+
     data = {
         'menu_selection_clothes': menu_selection_clothes,
         'title': 'Одежда для кукол',
         'menu': menu,
-        'typ_clothing': typ_clothing
+        'typ_clothing': Typ_clot
     }
     return render(request, 'dolls/clothes.html', data)
 
@@ -89,8 +84,13 @@ def login(request):
 
 
 def show_post_clothes(request, post_id):
-    return render(request, f'dolls/characteristics_description/clothes/{post_id}.html',
-                  {'title': 'Характеристики и описание', 'menu': menu})
+    post = get_object_or_404(Typ_clothing, pk=post_id)
+
+    data = {
+        'title': post.title,
+        'menu': menu
+    }
+    return render(request, f'dolls/characteristics_description/clothes/{post_id}.html', data)
 
 
 def show_post_footwear(request, post_id):
@@ -99,10 +99,12 @@ def show_post_footwear(request, post_id):
 
 
 def show_selection_clothes(request, cloth_type):
+    Typ_clot = Typ_clothing.objects.all()
+
     data = {
         'menu_selection_clothes': menu_selection_clothes,
         'menu': menu,
-        'typ_clothing': typ_clothing,
+        'typ_clothing': Typ_clot,
         'title': cloth_type,
         'cloth_type': cloth_type
     }
