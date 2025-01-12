@@ -37,7 +37,7 @@ class Menu_selection_clothes(models.Model):
         return self.typ
 
     def get_absolute_url(self):
-        return reverse('selection_clothes', kwargs={'cloth_type': self.typ})
+        return reverse('selection_clothes', kwargs={'cloth_type': self.slug})
 
 
 menu_selection_clothes = [
@@ -48,5 +48,3 @@ menu_selection_clothes = [
     {'typ': "Джинсы"},
     {'typ': "Наушники"}
 ]
-
-

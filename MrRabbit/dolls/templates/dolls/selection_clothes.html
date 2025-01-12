@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ title }}</h1>
+<h1>{% for t in title %}
+    {{ t.typ }}
+</h1>
 
 {% include 'dolls/includes/nav_for_clothes.html' %}
 
 <ul>
     {% for i in typ_clothing %}
+    {% if i.selection_clothes.slug in t.slug %}
 
     <li>
         <h2>{{ i.title }}</h2>
@@ -16,8 +19,10 @@
         {% endif %}
 
     </li>
-
+    {% endif %}
     {% endfor %}
+    {% endfor %}
+
 </ul>
 
 {% include 'dolls/includes/nav_for_clothes.html' %}
