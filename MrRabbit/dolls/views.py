@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseServerEr
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 
-from dolls.models import Typ_clothing
+from dolls.models import Typ_clothing, Menu_selection_clothes
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Одежда для кукол", 'url_name': 'clothes'},
@@ -16,15 +16,6 @@ typ_footwear = [
      'availability': True},
     {'id': 2, 'title': 'Мокасины для Paola Reina 32 см', 'typ': 'Мокасины', 'content': 'Характеристики и описание',
      'availability': True},
-]
-
-menu_selection_clothes = [
-    {'typ': "Верхняя одежда"},
-    {'typ': "Свитшоты"},
-    {'typ': "Блузки"},
-    {'typ': "Юбки"},
-    {'typ': "Джинсы"},
-    {'typ': "Наушники"}
 ]
 
 menu_selection_footwear = [
@@ -51,6 +42,7 @@ def about(request):
 
 def clothes(request):
     Typ_clot = Typ_clothing.availability.all()
+    menu_selection_clothes = Menu_selection_clothes.objects.all()
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
@@ -101,6 +93,8 @@ def show_post_footwear(request, post_id):
 
 def show_selection_clothes(request, cloth_type):
     Typ_clot = Typ_clothing.availability.filter(typ=cloth_type)
+    menu_selection_clothes = Menu_selection_clothes.objects.all()
+
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
