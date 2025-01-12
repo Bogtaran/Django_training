@@ -94,7 +94,7 @@ def show_post_footwear(request, post_id):
 def show_selection_clothes(request, cloth_type):
     Typ_clot = Typ_clothing.availability.all()
     menu_selection_clothes = Menu_selection_clothes.objects.all()
-    title = Menu_selection_clothes.objects.filter(slug=cloth_type)
+    title = Menu_selection_clothes.objects.get(slug=cloth_type)
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
