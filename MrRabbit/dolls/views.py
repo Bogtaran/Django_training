@@ -83,7 +83,8 @@ def show_post_clothes(request, post_slug):
         'menu': menu,
         'post': post
     }
-    return render(request, f'dolls/characteristics_description/clothes/clothes.html', data)
+    return render(request, f'dolls/characteristics_description/clothes/'
+                           f'characteristics_description_clothes.html', data)
 
 
 def show_post_footwear(request, post_id):
