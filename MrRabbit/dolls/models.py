@@ -14,7 +14,6 @@ class Typ_clothing(models.Model):
 
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
-    typ = models.CharField(max_length=150)
     content = models.TextField(blank=True)
     is_availability = models.BooleanField(choices=Status.choices, default=Status.DRAFT)
     selection_clothes = models.ForeignKey('Menu_selection_clothes', on_delete=models.PROTECT)
@@ -40,11 +39,3 @@ class Menu_selection_clothes(models.Model):
         return reverse('selection_clothes', kwargs={'cloth_type': self.slug})
 
 
-menu_selection_clothes = [
-    {'typ': "Верхняя одежда"},
-    {'typ': "Свитшоты"},
-    {'typ': "Блузки"},
-    {'typ': "Юбки"},
-    {'typ': "Джинсы"},
-    {'typ': "Наушники"}
-]
