@@ -9,7 +9,6 @@
 
 <ul>
     {% for i in typ_clothing %}
-    {% if i.availability %}
 
     <li>
         <h2>{{ i.title }}</h2>
@@ -19,7 +18,6 @@
         {% endif %}
 
     </li>
-    {% endif %}
     {% endfor %}
 </ul>
 

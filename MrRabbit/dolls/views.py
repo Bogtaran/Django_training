@@ -50,7 +50,7 @@ def about(request):
 
 
 def clothes(request):
-    Typ_clot = Typ_clothing.objects.all()
+    Typ_clot = Typ_clothing.availability.all()
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
@@ -100,7 +100,7 @@ def show_post_footwear(request, post_id):
 
 
 def show_selection_clothes(request, cloth_type):
-    Typ_clot = Typ_clothing.objects.filter(typ=cloth_type)
+    Typ_clot = Typ_clothing.availability.filter(typ=cloth_type)
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
