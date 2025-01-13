@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ title.typ }}
+<h1>{{ title }}
 </h1>
 
 {% include 'dolls/includes/nav_for_clothes.html' %}
 
 <ul>
     {% for i in typ_clothing %}
-    {% if i.selection_clothes.slug in title.slug %}
+    {% if i.selection_clothes.typ in title %}
 
     <li>
         <h2>{{ i.title }}</h2>

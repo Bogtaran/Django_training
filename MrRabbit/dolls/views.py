@@ -95,13 +95,13 @@ def show_post_footwear(request, post_id):
 def show_selection_clothes(request, cloth_type):
     Typ_clot = Typ_clothing.availability.all().select_related('selection_clothes')
     menu_selection_clothes = Menu_selection_clothes.objects.all()
-    title = Menu_selection_clothes.objects.get(slug=cloth_type)
+    title = Menu_selection_clothes.objects.get(slug=cloth_type).typ
 
     data = {
         'menu_selection_clothes': menu_selection_clothes,
         'menu': menu,
         'typ_clothing': Typ_clot,
-        'title': title,
+        'title': title
     }
     return render(request, f'dolls/selection_clothes.html', data)
 
