@@ -16,7 +16,8 @@ class Typ_clothing(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     content = models.TextField(blank=True)
     is_availability = models.BooleanField(choices=Status.choices, default=Status.DRAFT)
-    selection_clothes = models.ForeignKey('Menu_selection_clothes', on_delete=models.PROTECT)
+    selection_clothes = models.ForeignKey('Menu_selection_clothes', on_delete=models.PROTECT,
+                                          related_name='typ_clot')
 
     objects = models.Manager()
     availability = AvailabilityManager()
