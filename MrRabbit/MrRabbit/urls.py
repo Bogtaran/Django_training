@@ -28,3 +28,6 @@ urlpatterns = [
 
 handler404 = page_not_found
 handler500 = server_error
+
+admin.site.site_header = 'Панель администрирования'
+admin.site.index_title = 'Администрирование приложения dolls'
